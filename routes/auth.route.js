@@ -13,7 +13,7 @@ authRoute.post("/login", async (req, res) => {
   let response = await loginUser(req.body);
 
   if (response.status === "Error")
-    return res.status(501).send(response.message);
+    return res.status(500).send(response.message);
   delete response.status;
   res.status(200).json(response);
 });
